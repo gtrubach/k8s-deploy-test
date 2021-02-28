@@ -41,7 +41,7 @@ jobs:
         kubeconfig: ${{ secrets.KUBE_CONFIG }}
       
     - name: Deploy to Kubernetes cluster
-      uses: gtrubach/k8s-deploy@v1.3
+      uses: gtrubach/k8s-deploy@kubectl-multiarch
       with:
         manifests: test.yaml
         kubectl-version: 'latest'

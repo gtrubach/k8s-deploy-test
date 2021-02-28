@@ -21,10 +21,10 @@ jobs:
   # This workflow contains a single job called "greet"
   greet:
     # The type of runner that the job will run on
-    runs-on: ${{ matrix.os }}
+    runs-on: [self-hosted, '${{ matrix.os }}']
     strategy:
       matrix:
-        os: [self-hosted, Windows, Linux]
+        os: [Windows, Linux]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -44,4 +44,5 @@ jobs:
       uses: gtrubach/k8s-deploy@v1.3
       with:
         manifests: test.yaml
+        kubectl-version: 'latest'
         
